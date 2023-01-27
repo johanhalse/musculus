@@ -1,0 +1,32 @@
+{
+  "name": "musculus",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./musculus.mjs",
+    "./testing": "./lib/testing.js"
+  },
+  "main": "musculus.mjs",
+  "files": [
+    "lib/test-application",
+    "lib/application",
+    "lib/controller"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "lint": "eslint app/javascript test/javascript",
+    "watch:js": "esbuild actual-code.js --bundle --watch --sourcemap --outdir=dist",
+    "build": "esbuild actual-code.js --bundle --minify --outdir=dist",
+    "test": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^21.1.0",
+    "teenytest": "^6.0.3"
+  },
+  "description": ""
+}
