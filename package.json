@@ -2,6 +2,7 @@
   "name": "musculus",
   "version": "1.0.0",
   "type": "module",
+  "bin": "./bin/musculus.js",
   "exports": {
     ".": "./musculus.mjs",
     "./testing": "./lib/testing.js"
