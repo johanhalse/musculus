@@ -29,5 +29,8 @@
     "jsdom": "^21.1.0",
     "teenytest": "^6.0.3"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "esbuild": "^0.17.12"
+  }
 }
