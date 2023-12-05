@@ -18,8 +18,6 @@
   },
   "scripts": {
     "lint": "eslint app/javascript test/javascript",
-    "watch:js": "esbuild actual-code.js --bundle --watch --sourcemap --outdir=dist",
-    "build": "esbuild actual-code.js --bundle --minify --outdir=dist",
     "test": ""
   },
   "keywords": [],
