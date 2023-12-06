@@ -1,6 +1,6 @@
 # Musculus
 
-Like Hotwire, but a lot smaller and a lot more webcomponenty.
+Like Hotwire, but a lot smaller and a lot more web-componenty?
 
 ## Installation
 
@@ -90,31 +90,35 @@ Note how you don't have to give the `register` function a name! It'll register a
 The story around testing Stimulus has always been "run it through a browser or something, idk" and that never sat well with me. So Musculus has been designed for quick and painless testing from the beginning! It ships with a test adapter and CLI that lets you set up markup and assertions using TestDouble's brilliant [teenytest](https://github.com/testdouble/teenytest) framework. To test the ThingController above, you should create a file in your application called `test/lib/thing-controller-test.mjs` and put this in there:
 
 ```javascript
-import { TestApplication, html, controller, assert } from "musculus";
-import ThingController from "./controllers/thing-controller.js";
+import { TestApplication, assert } from "musculus/testing";
+import ThingController from "../../thing-controller.js";
 
 TestApplication.html(`
 <thing-controller>
   <span data-action="click->thing#runFunction">Not the data you are looking for</span>
 </thing-controller>
 `)
-TestApplication.register()
 
-module.exports = function blueIsRed(){
-  assert.equal(controller.querySelector("span").innerHTML, "I'm clicked!")
+export default function canUpdateHTML() {
+  TestApplication.register(ThingController);
+  TestApplication.start(globalThis.window);
+  assert.contains("Click me", TestApplication.html());
+
+  TestApplication.click("span");
+  assert.contains("I'm clicked!", TestApplication.html());
 }
 ```
 
-## Development
+Then you run the command `musculus` and your test should pass, really quickly!
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+The `TestApplication` singleton works like the `Application` you use in production, but sets up a [jsdom](https://github.com/jsdom/jsdom) window for you to play around in. It's very fast and doesn't require any fiddling with headless browsers. The `assert` class is passed along from [node](https://nodejs.org/api/assert.html#assert), and extended with a `contains` function you can use to check your application's markup. There's also a handy `click` convenience function as demonstrated above, and a more generic `TestApplication.fire(event, element)` function you can use for other HTML events.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+We might need more functions going forward, but between jsdom and teenytest there's a lot of depth already.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bankid.
+Bug reports and pull requests are welcome on GitHub at https://github.com/johanhalse/musculus.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The library is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
