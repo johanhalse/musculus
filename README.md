@@ -1,6 +1,6 @@
 # Musculus
 
-Like Hotwire, but a lot smaller and a lot more web-componenty?
+Like Stimulus, but _a lot_ smaller and a bit more webcomponenty? The entire library weighs less than 5kB unminified.
 
 ## Installation
 
@@ -70,7 +70,7 @@ Using Web Components we get a good-looking wrapper and a component lifecycle han
 
 ### The Application object
 
-The Application object is a little singleton object that sits on top of your controllers and handles the more global responsibilities of your app. In order to actually get your controllers working, you need to call `Application.start()`:
+The Application object is a little singleton object that sits on top of your controllers and handles the global responsibilities of your app. In order to actually get your controllers working, you need to call `Application.start()`:
 
 ```javascript
 import { Application } from "musculus";
@@ -95,7 +95,7 @@ import ThingController from "../../thing-controller.js";
 
 TestApplication.html(`
 <thing-controller>
-  <span data-action="click->thing#runFunction">Not the data you are looking for</span>
+  <span data-action="click->thing#runFunction">Click me</span>
 </thing-controller>
 `)
 
@@ -113,7 +113,7 @@ Then you run the command `musculus` and your test should pass, really quickly!
 
 The `TestApplication` singleton works like the `Application` you use in production, but sets up a [jsdom](https://github.com/jsdom/jsdom) window for you to play around in. It's very fast and doesn't require any fiddling with headless browsers. The `assert` class is passed along from [node](https://nodejs.org/api/assert.html#assert), and extended with a `contains` function you can use to check your application's markup. There's also a handy `click` convenience function as demonstrated above, and a more generic `TestApplication.fire(event, element)` function you can use for other HTML events.
 
-We might need more functions going forward, but between jsdom and teenytest there's a lot of depth already.
+We might need more functions going forward, but between jsdom and teenytest there's a lot of depth already. Musculus supplies the glue and lets you set up your test environment quickly and easily.
 
 ## Contributing
 
