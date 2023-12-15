@@ -115,6 +115,14 @@ The `TestApplication` singleton works like the `Application` you use in producti
 
 We might need more functions going forward, but between jsdom and teenytest there's a lot of depth already. Musculus supplies the glue and lets you set up your test environment quickly and easily.
 
+## What's missing?
+
+Musculus isn't intended to be a 1:1 copy of Stimulus, feature-wise. The goal is to have something simpler and _a lot_ smaller, that should be reasonably easy to move to if you have an existing Stimulus codebase and you're tired of having to ship dozens of kilobytes to your users before you've even written a controller. That means that any features that are deemed less mainstream (currently defined as "do I use these?") or that carry a large enough footprint, won't be included. That currently means quite a lot of stuff! But there are also some things I'd like to implement going forward, for instance:
+
+- Some kind of data binding for values (documented [here](https://stimulus.hotwired.dev/handbook/managing-state#using-values))
+- Better event dispatching (documented [here](https://stimulus.hotwired.dev/reference/controllers#cross-controller-coordination-with-events))
+- CSS Classes (documented [here](https://stimulus.hotwired.dev/reference/css-classes) although I'm a little on the fence about this one: the API is just so _wordy_)
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/johanhalse/musculus.

@@ -1,10 +1,10 @@
 {
-  "name": "musculus",
+  "name": "@johanhalse/musculus",
   "version": "0.1.0",
   "type": "module",
   "bin": "./bin/musculus.js",
   "exports": {
-    ".": "./musculus.mjs",
+    ".": "./dist/musculus.js",
     "./testing": "./lib/testing.js"
   },
   "main": "dist/musculus.js",
@@ -28,7 +28,7 @@
   },
   "description": "",
   "devDependencies": {
-    "jsdom": "^23.0.0",
-    "esbuild": "^0.17.12"
+    "esbuild": "^0.17.12",
+    "jsdom": "^23.0.0"
   }
 }
