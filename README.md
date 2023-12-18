@@ -1,5 +1,7 @@
 # Musculus
 
+![Mus Musculus Musculus](https://github.com/johanhalse/musculus/blob/main/musculus.png?raw=true)
+
 Like Stimulus, but _a lot_ smaller and a bit more webcomponenty? The entire library weighs less than 5kB unminified.
 
 ## Installation
