@@ -1,6 +1,6 @@
 {
   "name": "@johanhalse/musculus",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "bin": "./bin/musculus.js",
   "exports": {
@@ -23,11 +23,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "teenytest": "^6.0.3"
+    "teenytest": "^6.0.3",
+    "jsdom": "^23.0.0"
   },
   "description": "",
   "devDependencies": {
-    "esbuild": "^0.17.12",
-    "jsdom": "^23.0.0"
+    "esbuild": "^0.17.12"
   }
 }
