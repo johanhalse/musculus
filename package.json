@@ -1,6 +1,6 @@
 {
   "name": "@johanhalse/musculus",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "bin": "./bin/musculus.js",
   "exports": {
@@ -9,8 +9,7 @@
   },
   "main": "dist/musculus.js",
   "files": [
-    "lib/application",
-    "lib/controller"
+    "lib/*"
   ],
   "directories": {
     "lib": "lib"
