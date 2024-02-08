@@ -31,7 +31,7 @@ var Application = class {
     }
   }
   register(controller) {
-    let controllerName = this.dasherize(controller.name);
+    let controllerName = this.dasherize(controller.name.replace("Default", ""));
     this.controllers[controllerName] = controller;
   }
 };
